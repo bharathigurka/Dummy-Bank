@@ -1,0 +1,80 @@
+<div class="mainClsContainer">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-form-card
+        (submitedFormDetails)="getSubmitedDetails($event)"
+      ></app-form-card>
+    </div>
+    <div class="col-6">
+      <div class="card shadow-lg mb-3">
+        <div class="card-header bg-transparent">
+          <img src="/assets/list.png" />
+          <div class="cardHeaderTitle">Transaction <b> List</b></div>
+        </div>
+        <div class="card-body scroll">
+          <app-filter (inputChange)="getFilterData($event)"></app-filter>
+          <div class="cardScroll">
+            <app-transaction-item
+              class="transactionCls"
+              *ngFor="let data of transactionData?.slice().reverse()"
+            >
+              <div
+                data-test-hook="transactionColour"
+                class="listBorder"
+                [ngStyle]="{ 'border-left': '6px solid' + data.categoryCode }"
+              ></div>
+              <div data-test-hook="transactionDate" class="dateFormat col-2">
+                {{ data.dates.valueDate | date: "MMM. dd" }}
+              </div>
+              <div
+                data-test-hook="transactionMerchantName"
+                class="merchantName"
+              >
+                {{ data.merchant.name }}
+              </div>
+              <div data-test-hook="transactionType" class="merchantType">
+                {{ data.transaction.type }}
+              </div>
+
+              <div
+                data-test-hook="transactionAmount"
+                class="col-3"
+                [ngClass]="
+                  data.transaction.creditDebitIndicator == amountType
+                    ? 'dbit-type'
+                    : 'crdt-type'
+                "
+              >
+                <span
+                  *ngIf="data.transaction.creditDebitIndicator == amountType"
+                >
+                  €
+                  {{
+                    data.transaction.amountCurrency.amount | negativeNumber
+                  }}</span
+                >
+
+                <span
+                  *ngIf="data.transaction.creditDebitIndicator !== amountType"
+                >
+                  {{
+                    data.transaction.amountCurrency.amount
+                      | currency: data.transaction.amountCurrency.currencyCode
+                  }}
+                </span>
+
+                <!-- {{ data.transaction.amountCurrency.amount  | currency: data.transaction.amountCurrency.currencyCode}} -->
+              </div>
+            </app-transaction-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showReviewPopup">
+  <app-review-popup
+    [getMerchantDetail]="merchantDetail"
+    (reviewPopUpClose)="closeReview($event)"
+  ></app-review-popup>
+</div>

@@ -1,0 +1,39 @@
+@import "../../../styles/main.scss";
+
+.success {
+  border-radius: 4px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.19);
+  background-color: $white;
+  text-align: center;
+  padding: 0rem 2rem;
+}
+.closeButton {
+  cursor: pointer;
+  color: $white;
+  letter-spacing: 0.07px;
+  padding: 0.4rem 1.1rem;
+  background-color: $black;
+  border-radius: 0px !important;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 2.1rem;
+  box-shadow: 3px 3px $light-gray;
+  border: none !important;
+}
+.heading {
+  color: $white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.para1 {
+  color: $black;
+}
+.success .modal-body {
+  padding: 0rem !important;
+  min-height: 8rem !important;
+}
+
+.success .modal-footer {
+  border-top: none !important;
+  justify-content: center;
+}

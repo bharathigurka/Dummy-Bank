@@ -1,0 +1,19 @@
+<ng-template #alertCompRef let-modal>
+  <div class="success">
+    <div class="modal-body">
+      <div class="heading miniSubTitle">{{ title }}</div>
+      <div class="para1 commonContent">
+        {{ message }}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="closeButton removeBox formButton"
+        (click)="closePopup()"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</ng-template>

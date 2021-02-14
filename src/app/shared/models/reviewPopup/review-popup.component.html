@@ -1,0 +1,38 @@
+<ng-template #transferReviewPopup let-modal>
+  <div class="startInnovationMainContainer">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-title"><b>Review</b> Transfer</h4>
+      <button
+        type="button"
+        class="close"
+        aria-describedby="modal-title"
+        (click)="closePopup('Close')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you ready to send out this transfer ?</p>
+      <div class="titleLine">it will be send to account :</div>
+      <p>{{ getMerchantDetail.ToAccount }}</p>
+      <div class="titleLine">with the amount of :</div>
+      <p class="amountCls">{{ getMerchantDetail.Amount | currency: "EUR" }}</p>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        (click)="closePopup('Close')"
+      >
+        Close
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="closePopup('Send')"
+      >
+        Send Transfer
+      </button>
+    </div>
+  </div>
+</ng-template>

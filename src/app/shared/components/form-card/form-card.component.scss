@@ -1,0 +1,19 @@
+@import "../../../styles/main.scss";
+.formCardCls {
+  label {
+    font-size: 1.1rem;
+  }
+  .form-control.is-invalid {
+    background-image: none !important;
+  }
+  .form-control.is-invalid:focus,
+  .was-validated .form-control:invalid:focus,
+  .form-control:focus {
+    box-shadow: none;
+  }
+  .fieldRequired {
+    color: $red;
+    font-size: 0.8rem;
+    padding-top: 0.4rem;
+  }
+}

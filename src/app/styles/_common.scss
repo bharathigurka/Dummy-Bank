@@ -1,0 +1,66 @@
+header {
+  padding: 1.5rem 1.2rem;
+  background-color: $white;
+  position: fixed;
+  width: 100%;
+}
+footer {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  color: $primary-blue;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: $white;
+  padding: 0.8rem;
+}
+::ng-deep.btn-primary {
+  outline: none;
+  color: $white !important;
+  background-color: $orange !important;
+  border-color: $orange !important;
+}
+//common card css for form and list
+.card {
+  border-radius: 1rem;
+  background-color: transparent !important;
+}
+.card-header {
+  background-color: $primary-blue !important;
+  color: $white;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  img {
+    height: 2rem;
+    padding-right: 0.8rem;
+  }
+}
+.card-body,
+.card-footer {
+  background-color: $white;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.cardHeaderTitle {
+  font-size: 1.3rem;
+}
+.merchant-details {
+  width: 70% !important;
+}
+.transferReviewPopupCLs {
+  .titleLine {
+    font-weight: 600;
+    padding-top: 0.8rem;
+  }
+  p {
+    font-size: 14px;
+  }
+  .amountCls::first-letter {
+    padding-right: 0.3em;
+  }
+}

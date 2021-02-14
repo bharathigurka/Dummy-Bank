@@ -1,0 +1,54 @@
+@import "../styles/main.scss";
+
+.mainClsContainer {
+  padding-top: 12rem;
+  .cardScroll {
+    height: calc(100vh - 450px);
+    // @include set-Height('card-height');
+    overflow-y: auto;
+  }
+  .transactionCls {
+    display: flex;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $light-gray;
+    margin-bottom: 1.5rem;
+  }
+  .transactionCls:last-child {
+    border: none;
+  }
+  .merchant-details {
+    padding: 0.5rem;
+  }
+  .listBorder {
+    padding: 2.5rem 0rem;
+  }
+  .dateFormat {
+    // padding-right: 1.5rem;
+    padding-top: 1.8rem;
+  }
+  .merchantName {
+    font-weight: 600;
+    padding-top: 0.8rem;
+    padding-right: 1rem;
+  }
+  .merchantType {
+    color: $gray;
+    font-size: 14px;
+  }
+  .dbit-type {
+    text-align: end;
+    padding-right: 0rem;
+    padding-top: 1.8rem;
+    color: $red;
+  }
+  .crdt-type {
+    text-align: end;
+    padding-right: 0rem;
+    padding-top: 1.8rem;
+    color: $green;
+  }
+  .dbit-type::first-letter,
+  .crdt-type::first-letter {
+    padding-right: 0.3em;
+  }
+}

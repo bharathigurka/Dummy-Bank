@@ -1,0 +1,109 @@
+<div class="card formCardCls shadow-lg mb-3">
+  <div class="card-header bg-transparent">
+    <img src="/assets/wallet.png" />
+    <div class="cardHeaderTitle"><b>Make</b> Transfer</div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="formValidationCheck()">
+      <div class="form-group">
+        <label>From Account</label>
+        <input
+          type="text"
+          formControlName="FromAccount"
+          class="form-control"
+          [(ngModel)]="FromAccountValue"
+          [placeholder]=""
+          [readOnly]="true"
+        />
+      </div>
+      <div class="form-group">
+        <label>To Account</label>
+        <input
+          type="text"
+          formControlName="ToAccount"
+          class="form-control"
+          placeholder="type an account name"
+          [ngClass]="{
+            'is-invalid':
+              submitted &&
+              registerForm.controls['ToAccount'].hasError('required')
+          }"
+        />
+        <div
+          *ngIf="
+            submitted && registerForm.controls['ToAccount'].hasError('required')
+          "
+          class="fieldRequired"
+        >
+          This field is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Amount</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">€</span>
+          </div>
+          <input
+            type="text"
+            formControlName="Amount"
+            class="form-control"
+            placeholder="specify the amount"
+            [ngClass]="{
+              'is-invalid':
+                submitted &&
+                registerForm.controls['Amount'].hasError('required')
+            }"
+          />
+        </div>
+        <div
+          *ngIf="
+            submitted && registerForm.controls['Amount'].hasError('required')
+          "
+          class="fieldRequired"
+        >
+          This field is required
+        </div>
+        <div
+          *ngIf="
+            registerForm.controls['Amount'].dirty &&
+            registerForm.controls['Amount'].hasError('min')
+          "
+          class="fieldRequired"
+        >
+          Please maintain atleast {{ this.minAmount }}
+        </div>
+        <div
+          *ngIf="
+            registerForm.controls['Amount'].dirty &&
+            registerForm.controls['Amount'].hasError('max')
+          "
+          class="fieldRequired"
+        >
+          There is not enough balance
+        </div>
+        <div
+          *ngIf="
+            registerForm.controls['Amount'].dirty &&
+            registerForm.controls['Amount'].hasError('pattern')
+          "
+          class="fieldRequired"
+        >
+          Please enter valid number
+        </div>
+        <div
+          *ngIf="
+            registerForm.controls['Amount'].dirty &&
+            registerForm.controls['Amount']?.errors?.limitError
+          "
+          class="fieldRequired"
+        >
+          Insuffecient Account Balance and Please maintain atleast 500 Euros
+        </div>
+      </div>
+      <div class="form-group float-right">
+        <app-submit-button></app-submit-button>
+      </div>
+    </form>
+  </div>
+</div>
